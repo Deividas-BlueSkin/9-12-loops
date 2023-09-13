@@ -17,6 +17,10 @@ function game(start, end) {
 
             rez += 'Fuzz'
         }
+        if (i % 11 == 0) {
+
+            rez += 'Bizz'
+        }
         if (!rez) {
             console.log(i)
         }
