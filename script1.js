@@ -1,4 +1,24 @@
-console.log('Game:')
+let body = document.body
+
+let container = document.querySelector('div')
+
+function create(HTMLelement = 'div', parent, classes, id) {
+    let element = document.createElement(HTMLelement)
+    if (parent) { parent.append(element) }
+    else { document.body.append(element) }
+    if (classes) { element.className = classes }
+    if (id) { element.id = id }
+    return element
+}
+let ul = create('ul')
+ul.style.listStyle = 'none'
+
+function list(text) {
+    let li = create('li', ul)
+    li.textContent = text
+}
+
+
 function game(start, end) {
     for (let i = start; i <= end; i++) {
         let rez = ''
@@ -22,11 +42,11 @@ function game(start, end) {
             rez += 'Bizz'
         }
         if (!rez) {
-            console.log(i)
+            list(i)
         }
         else {
-            console.log(rez)
+            list(rez)
         }
     }
 }
-game(1,1000)
+game(1, 1000)
