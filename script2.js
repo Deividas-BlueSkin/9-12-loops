@@ -115,6 +115,12 @@ let t30 = [...arr.slice(2, 3), ...arr.slice(14, 3)]
 // sukurti funkcija, kuri apjungtu 3.3 - 3.7 uzduotis?
 // funkcija tures priimti masyva ir skaiciu is kurio turi dalintis masyve esantis skaicius
 
+
+
+let rez = []
+rez.push(arr.filter(function (n, i, arr) { return n > 0 }))
+rez.push(arr.filter(function (n, i, arr) { return n < 0 }))
+
 function divide(arr, dv) {
     if (dv.length > 1) {
         for (let i = 0; i < dv.length; i++) {
@@ -125,12 +131,6 @@ function divide(arr, dv) {
         rez.push(arr.filter(function (n) { return n % dv == 0 }))
     }
 }
-
-
-let rez = []
-rez.push(arr.filter(function (n, i, arr) { return n > 0 }))
-rez.push(arr.filter(function (n, i, arr) { return n < 0 }))
-
 divide(arr, [2, 3, 5, 11, 31])
 
 // rez.push(arr.filter(function (n, i, arr) { return n % 2 == 0 }))
