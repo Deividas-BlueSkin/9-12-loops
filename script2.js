@@ -44,32 +44,66 @@ let arr = [4, 5, -5556, 155, 640, '15x', 6789,
     -5564, 478, 654, 'apple', 789, -51, 55, -222,
     0, -357, -56, 'change', 444, 7778, 4154, 4751]
 
-arr.shift()//ok
-arr.pop()//not hard
-console.log(`${arr.length} mid -> ${(arr.length) / 2}`)//making strategy
-arr.splice(Math.trunc(arr.length) / 2, 1)//seems hard
-arr.splice(-2, 1)//it's confusing
-arr.splice(1, 1)//going insane
-arr.splice(6, 2)// mentally ill
-arr.splice(-6, 3)//I am deranged
-arr.splice(2, 1, 888)//I'm now demented 
-arr.splice(9, 1, 33, 789, 6543)// not of sound mind
-arr.splice(-1, 1, 321, 654, 987)//crazy & dull
-arr.splice(1, 0, 11)// shifting lunatic
-arr.splice(13, 0, 1)//became hysterical
-arr.splice(-1, 0, -1)//kind'a delirious
-arr.unshift(1, 2, 3)//mental circumstance - I'm foaming at the mouth
-arr.push(-333, -321, -312)// gone bananas
-arr.splice(Math.trunc(arr.length) / 2, 0, 0)// loopy loony dippy screwy
-arr.shift()// There lived a certain man in Russia long ago
-arr.pop()//He was big and strong, in his eyes a flaming glow
-arr.unshift('start')//Most people looked at him with terror and with fear
-arr.push('end')// But to Moscow chicks he was such a lovely dear
+arr.shift()
+arr.pop() /
+    console.log(`${arr.length} mid -> ${(arr.length) / 2}`) /
+    arr.splice(Math.trunc(arr.length) / 2, 1)
+arr.splice(-2, 1)
+arr.splice(1, 1)
+arr.splice(6, 2)
+arr.splice(-6, 3)
+arr.splice(2, 1, 888)
+arr.splice(9, 1, 33, 789, 6543)
+arr.splice(-1, 1, 321, 654, 987)
+arr.splice(1, 0, 11)
+arr.splice(13, 0, 1)
+arr.splice(-1, 0, -1)
+arr.unshift(1, 2, 3)
+arr.push(-333, -321, -312)
+arr.splice(Math.trunc(arr.length) / 2, 0, 0)
+arr.shift()
+arr.pop()
+arr.unshift('start')
+arr.push('end')
 
-console.log(arr)// Ra ra Rasputin
+console.log(arr)
 
 // [<=-=-=-=-=-=-=-=-=-=-=-=>][<=-=-=-=-=-=-=-=-=-=-=-=>][<=-=-=-=-
 // next task
 // [<=-=-=-=-=-=-=-=-=-=-=-=>][<=-=-=-=-=-=-=-=-=-=-=-=>][<=-=-=-=-
 
-//no
+let t1 = arr.slice(0, 1)
+let t2 = arr.slice(-1, 1)
+let t3 = arr.slice(1, 1)
+let t4 = arr.slice(-2, 1)
+let t5 = arr.slice(7, 1)
+let t6 = arr.slice(-9, 1)
+let t7 = arr.slice(Math.trunc(arr.length / 2), 1)
+let t8 = arr.slice(0, 3)
+let t9 = arr.slice(-3, 3)
+let t10 = arr.slice(0, 10)
+let t11 = arr.slice(-10, 10)
+let t12 = arr.slice(2, 6)
+let t13 = arr.slice(-5, 5)
+let t14 = arr.slice(10, 9)
+let t15 = arr.slice(-9, 9)
+let t16 = arr.slice(1)
+let t17 = arr.slice(-1)
+let t18 = arr.slice(5)
+let t19 = arr.slice(-5)
+let t20 = arr.slice(0, Math.trunc(arr.length / 2))//vid
+let t21 = arr.slice(-Math.trunc(arr.length / 2), Math.trunc(arr.length / 2))
+let t22 = arr.slice(1, arr.length - 2)
+let t23 = arr.slice(5, arr.length - 5)
+let t24 = arr.slice(1, arr.length - 10)
+let t25 = arr.slice(7, arr.length - 2)
+let t26 = arr.slice(9, arr.length - 14)
+let t27 = arr.slice(10, 9)
+let t28 = arr.slice(7, 12)
+let t29 = arr.slice(0, 5) + arr.slice(-8, 8)
+let t30 = arr.slice(2, 3) + arr.slice(14, 3)
+
+
+
+
+
