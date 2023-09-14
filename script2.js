@@ -121,14 +121,10 @@ let rez = []
 rez.push(arr.filter(function (n, i, arr) { return n > 0 }))
 rez.push(arr.filter(function (n, i, arr) { return n < 0 }))
 
-function divide(arr, dv) {
-    if (dv.length > 1) {
-        for (let i = 0; i < dv.length; i++) {
-            rez.push(arr.filter(function (n) { return n % dv[i] == 0 }))
-        }
-    }
-    else {
-        rez.push(arr.filter(function (n) { return n % dv == 0 }))
+function divide(array, divider) {
+    let result
+    for (let i = 0; i < divider.length; i++) {
+        result[i] = (array.filter(function (filterNum) { return filterNum % divider[i] == 0 }))
     }
 }
 divide(arr, [2, 3, 5, 11, 31])
