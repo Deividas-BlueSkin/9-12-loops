@@ -111,14 +111,34 @@ let t30 = [...arr.slice(2, 3), ...arr.slice(14, 3)]
 // next task 3
 // [<=-=-=-=-=-=-=-=-=-=-=-=>][<=-=-=-=-=-=-=-=-=-=-=-=>][<=-=-=-=-
 
+
+// sukurti funkcija, kuri apjungtu 3.3 - 3.7 uzduotis?
+// funkcija tures priimti masyva ir skaiciu is kurio turi dalintis masyve esantis skaicius
+
+function divide(arr, dv) {
+    if (dv.length > 1) {
+        for (let i = 0; i < dv.length; i++) {
+            rez.push(arr.filter(function (n) { return n % dv[i] == 0 }))
+        }
+    }
+    else {
+        rez.push(arr.filter(function (n) { return n % dv == 0 }))
+    }
+}
+
+
 let rez = []
 rez.push(arr.filter(function (n, i, arr) { return n > 0 }))
 rez.push(arr.filter(function (n, i, arr) { return n < 0 }))
-rez.push(arr.filter(function (n, i, arr) { return n % 2 == 0 }))
-rez.push(arr.filter(function (n, i, arr) { return n % 3 == 0 }))
-rez.push(arr.filter(function (n, i, arr) { return n % 5 == 0 }))
-rez.push(arr.filter(function (n, i, arr) { return n % 11 == 0 }))
-rez.push(arr.filter(function (n, i, arr) { return n % 31 == 0 }))
+
+divide(arr, [2, 3, 5, 11, 31])
+
+// rez.push(arr.filter(function (n, i, arr) { return n % 2 == 0 }))
+// rez.push(arr.filter(function (n, i, arr) { return n % 3 == 0 }))
+// rez.push(arr.filter(function (n, i, arr) { return n % 5 == 0 }))
+// rez.push(arr.filter(function (n, i, arr) { return n % 11 == 0 }))
+// rez.push(arr.filter(function (n, i, arr) { return n % 31 == 0 }))
+
 rez.push(arr.filter(function (n, i, arr) { return n % 2 == 0 && n % 3 == 0 }))
 rez.push(arr.filter(function (n, i, arr) { return n % 3 == 0 && n % 7 == 0 }))
 rez.push(arr.filter(function (n, i, arr) { return n % 5 == 0 && n % 9 == 0 }))
@@ -193,3 +213,5 @@ rez.push(arr.filter(function (n, i, arr) { return typeof n === 'string' && !n[4]
 rez.push(arr.filter(function (n, i, arr) { return typeof n === 'string' && !n.startsWith('e') && n.length < 6 && isNaN(n[0]) }))
 
 console.log(rez)
+
+
