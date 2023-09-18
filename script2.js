@@ -1,3 +1,18 @@
+
+let body = document.body
+
+let container = document.querySelector('div')
+
+function create(HTMLelement = 'div', parent, classes, id) {
+    let element = document.createElement(HTMLelement)
+    if (parent) { parent.append(element) }
+    else { document.body.append(element) }
+    if (classes) { element.className = classes }
+    if (id) { element.id = id }
+    return element
+}
+
+
 let arrayA = [1, 2, 3, 3, 4, 5, 6]
 
 // console.log(arrayA)
@@ -213,7 +228,15 @@ console.log(result)
 // [<=-=-=-=-=-=-=-=-=-=-=-=>][<=-=-=-=-=-=-=-=-=-=-=-=>][<=-=-=-=-
 // new task
 // [<=-=-=-=-=-=-=-=-=-=-=-=>][<=-=-=-=-=-=-=-=-=-=-=-=>][<=-=-=-=-
-let resultArray = []
+function ul(id) {
+    return create('ul', container, '', id)
+}
+function li(ul, result) {
+    let li = create('li', ul)
+    li.textContent = result
+    li.style.listStyle = 'none'
+}
+
 // 4. Tęsiant darbą su ankstesniu masyvu atlikti šias užduotis naudojant for ciklą ir map/forEach metodą.
 // Kiekvieną užduotį atlikti abiem būdais (for ciklu ir map/forEach metodu). Visus narius išvesti į konsole pagal žemiau pateiktas sąlygas:
 
@@ -225,20 +248,16 @@ for (let i = 0; i < arr.length; i++) {
     }
 }
 
-var temp = arr.filter(function (num) {
-    if (!isNaN(num)) {
-        console.log(num)
-        return num
-    }
-})
-resultArray.push(temp)
-
-resultArray.push(arr.map(function (str) {
-    if (typeof (str) === 'string') {
-        console.log(str)
-        return str
-    }
-}).filter(num => num !== undefined))
+function task1(array) {
+    let ul1 = ul('task-1')
+    array.map(function (num) {
+        if (!isNaN(num)) {
+            console.log(num)
+            li(ul1, num)
+        }
+    })
+}
+task1(arr)
 
 // resultArray.push(arr.map(function (num) {
 //     if (!isNaN(num)) {
@@ -253,6 +272,16 @@ for (let i = 0; i < arr.length; i++) {
         console.log(arr[i])
     }
 }
+function task2(array){
+    let ul2 = ul('task-2')
+    array.map(function (str) {
+        if (typeof (str) === 'string') {
+            console.log(str)
+            li(ul2, str)
+        }
+    })
+}
+task2(arr)
 
 // 4.3. Tik skaičius (number tipo duomenis) ir juos pakelti 4-tuoju laipsniu.
 for (let i = 0; i < arr.length; i++) {
@@ -260,14 +289,14 @@ for (let i = 0; i < arr.length; i++) {
         console.log(Math.pow(arr[i], 4))
     }
 }
-resultArray.push(
-    arr.map(function (num) {
-        if (!isNaN(num)) {
-            console.log(Math.pow(num, 4))
-            return Math.pow(num, 4)
-        }
-    }).filter(num => num !== undefined)
-)
+let ul3 = ul('task-3')
+
+arr.map(function (num) {
+    if (!isNaN(num)) {
+        console.log(Math.pow(num, 4))
+        li(ul3, Math.pow(num, 4))
+    }
+})
 
 // 4.4. Tik skaičius (number tipo duomenis) ir prie jų pridėti 55.
 for (let i = 0; i < arr.length; i++) {
@@ -275,33 +304,39 @@ for (let i = 0; i < arr.length; i++) {
         console.log(arr[i] + 55)
     }
 }
-resultArray.push(arr.map(function (num) {
+let ul4 = ul('task-4')
+arr.map(function (num) {
     if (!isNaN(num)) {
         console.log(num + 55)
+        li(ul4, num + 55)
     }
-}).filter(num => num !== undefined))
+})
 // 4.5. Tik skaičius (number tipo duomenis) ir juos padalinti iš 2.
 for (let i = 0; i < arr.length; i++) {
     if (!isNaN(arr[i])) {
         console.log(arr[i] / 2)
     }
 }
-resultArray.push(arr.map(function (num) {
+let ul5 = ul('task-5')
+arr.map(function (num) {
     if (!isNaN(num)) {
         console.log(num / 2)
+        li(ul5, num / 2)
     }
-}).filter(num => num !== undefined))
+})
 // 4.6. Tik skaičius (number tipo duomenis) ir prieš juos pridėti teksta, tokiu formatu: "Number: 2".
 for (let i = 0; i < arr.length; i++) {
     if (!isNaN(arr[i])) {
         console.log('number: ' + arr[i])
     }
 }
-resultArray.push(arr.map(function (num) {
+let ul6 = ul('task-6')
+arr.map(function (num) {
     if (!isNaN(num)) {
         console.log('number: ' + num)
+        li(ul6, 'number: ' + num)
     }
-}).filter(num => num !== undefined))
+})
 // 4.7. Tik skaičius (number tipo duomenis) ir pridėti tekstą su jų pačių indeksais, pvz.:
 //   "Index: 0, Number: 2"
 //   "Index: 1, Number: 3"
@@ -312,11 +347,13 @@ for (let i = 0; i < arr.length; i++) {
         console.log(`Index ${i}, Nubmer: ${arr[i]}`)
     }
 }
-resultArray.push(arr.map(function (num, i) {
+let ul7 = ul('task-7')
+arr.map(function (num, i) {
     if (!isNaN(num)) {
         console.log(`Index ${i}, Nubmer: ${num}`)
+        li(ul7, `Index ${i}, Nubmer: ${num}`)
     }
-}).filter(num => num !== undefined))
+})
 
 // 4.8. Tik skaičius (number tipo duomenis) ir juos padauginti iš jų pačių indekso.
 for (let i = 0; i < arr.length; i++) {
@@ -324,11 +361,13 @@ for (let i = 0; i < arr.length; i++) {
         console.log(i * arr[i])
     }
 }
-resultArray.push(arr.map(function (num, i) {
+let ul8 = ul('task-8')
+arr.map(function (num, i) {
     if (!isNaN(num)) {
         console.log(i * num)
+        li(ul8, i * num)
     }
-}).filter(num => num !== undefined))
+})
 
 // 4.9. Tik skaičius (number tipo duomenis) ir juos padauginti iš ankstesnio nario, pvz.:
 //   - Pirmo skaičiaus dauginti nereikia.
@@ -346,16 +385,17 @@ for (let i = 0; i < arr.length; i++) {
         console.log(temp)
     }
 }
-resultArray.push(
-    arr.filter(function (num, i) {
-        if (!isNaN(num)) {
-            let temp
-            if (i != 0) {
-                temp = arr[i - 1] * num
-            } else { temp = num }
-            return temp
-        }
-    }))
+let ul9 = ul('task-9')
+arr.map(function (num, i) {
+    if (!isNaN(num)) {
+        let temp
+        if (i != 0) {
+            temp = arr[i - 1] * num
+        } else { temp = num }
+        console.log(temp)
+        li(ul9, temp)
+    }
+})
 
 // 4.10. Tik tuos skaičius (number tipo duomenis), kuriuos padauginus iš 5, atsakymas gaunasi didesnis už 350.
 for (let i = 0; i < arr.length; i++) {
@@ -363,11 +403,13 @@ for (let i = 0; i < arr.length; i++) {
         console.log(arr[i])
     }
 }
-resultArray.push(arr.map(function (num) {
+let ul10 = ul('task-10')
+arr.map(function (num) {
     if (!isNaN(num) && num * 5 > 350) {
         console.log(num)
+        li(ul10, num)
     }
-}).filter(num => num !== undefined))
+})
 
 // 4.11. Tik tekstą (string tipo duomenis) ir prie kiekvieno teksto parašyti kiek simbolių jis turi, pvz. "Start has 5 symbols".
 for (let i = 0; i < arr.length; i++) {
@@ -375,24 +417,28 @@ for (let i = 0; i < arr.length; i++) {
         console.log(`${arr[i]} has ${arr[i].length} chars`)
     }
 }
-resultArray.push(arr.map(function (str) {
+let ul11 = ul('task-11')
+arr.map(function (str) {
     if (typeof (str) === 'string') {
         console.log(`${str} has ${str.length} chars`)
+        li(ul11, `${str} has ${str.length} chars`)
     }
-}).filter(num => num !== undefined))
+})
 // 4.12. Tik tekstą (string tipo duomenis), tačiau kiekviena žodžio raidę išskiriant brūkšniu ir paverčiant ją didžiąja raide, pvz.: "S-T-A-R-T".
 for (let i = 0; i < arr.length; i++) {
     if (typeof (arr[i]) === 'string') {
         let temp
-        temp.push(arr[i].toUpperCase().split('').flat().join('-'))
+        temp = arr[i].toUpperCase().split('').flat().join('-')
         console.log(temp)
     }
 }
-resultArray.push(arr.map(function (str) {
+let ul12 = ul('task-12')
+arr.map(function (str) {
     if (typeof (str) === 'string') {
         console.log(str.toUpperCase().split('').flat().join('-'))
+        li(ul12, str.toUpperCase().split('').flat().join('-'))
     }
-}).filter(num => num !== undefined))
+})
 // 4.13. Tik tekstą (string tipo duomenis), tačiau kiekviena žodžio pirmą ir trečią raidę pakeičiant brūkšniu (underscore), pvz.: "_t_rt";
 for (let i = 0; i < arr.length; i++) {
     if (typeof (arr[i]) === 'string') {
@@ -404,7 +450,8 @@ for (let i = 0; i < arr.length; i++) {
         console.log(temp)
     }
 }
-resultArray.push(arr.map(function (str) {
+let ul13 = ul('task-13')
+arr.map(function (str) {
     if (typeof (str) === 'string') {
         let temp = []
         temp = str.split('')
@@ -412,19 +459,22 @@ resultArray.push(arr.map(function (str) {
         temp[2] = '_'
         temp = temp.join('')
         console.log(temp)
+        li(ul13, temp)
     }
-}).filter(num => num !== undefined))
+})
 // 4.14. Tik tekstą (string tipo duomenis), tačiau žodį parašant atvirkščiai, pvz.: vietoje "start" parašyti "trats";
 for (let i = 0; i < arr.length; i++) {
     if (typeof (arr[i]) === 'string') {
         console.log(arr[i].split('').reverse().join(''))
     }
 }
-resultArray.push(arr.map(function (str) {
+let ul14 = ul('task-14')
+arr.map(function (str) {
     if (typeof (str) === 'string') {
         console.log(str.split('').reverse().join(''))
+        li(ul14, str.split('').reverse().join(''))
     }
-}).filter(num => num !== undefined))
+})
 
 // 4.15. Tik tekstą (string tipo duomenis) ir prie kiekvieno teksto parašyti tarp kokių narių masyve jis yra, pvz.: "Word obuolys is between -5564 and -51 in the array".
 for (let i = 0; i < arr.length; i++) {
@@ -432,10 +482,10 @@ for (let i = 0; i < arr.length; i++) {
         console.log(`word '${arr[i]}' is between '${arr[i - 1]}' and '${arr[i + 1]}' in the array`)
     }
 }
-resultArray.push(arr.map(function (str, i) {
+let ul15 = ul('task-15')
+arr.map(function (str, i) {
     if (typeof (str) === 'string') {
         console.log(`word '${str}' is between '${arr[i - 1]}' and '${arr[i + 1]}' in the array`)
+        li(ul15, `word '${str}' is between '${arr[i - 1]}' and '${arr[i + 1]}' in the array`)
     }
-}).filter(num => num !== undefined))
-
-console.log(resultArray)
+})
